@@ -1,5 +1,4 @@
 import operator
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -7,8 +6,13 @@ import matplotlib.pyplot as plt
 # 给出训练数据以及对应的类别
 
 def createDataSet():
-    group = np.array([[1.0, 2.0], [1.2, 0.1], [0.1, 1.4], [0.3, 3.5], [1.1, 1.0], [0.5, 1.5]])
-    labels = np.array(['A', 'A', 'B', 'B', 'A', 'B'])
+    group = np.array([[180, 85], [180, 86], [180, 90],
+                      [180, 100], [185, 120], [175, 80],
+                      [175, 60], [170, 60], [175, 90],
+                      [175, 100], [185, 90], [185, 80]])
+    labels = np.array(['稍胖', '稍胖', '稍胖', '过胖',
+                       '太胖', '正常', '偏瘦', '正常',
+                       '过胖', '太胖', '正常', '偏瘦'])
     return group, labels
 
 
@@ -51,8 +55,7 @@ def KNN_classify(k, dis, X_train, x_train, Y_test):
 
 if __name__ == '__main__':
     group, labels = createDataSet()
-    y_test_pred = KNN_classify(1, 'E', group, labels, np.array([[1.0, 2.1], [0.4, 2.0]]))
+    y_test_pred = KNN_classify(1, 'E', group, labels, np.array([[185, 80], [170, 100]]))
     print(y_test_pred)
 
 #  ['A' 'B']
-
